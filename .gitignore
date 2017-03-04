@@ -1,3 +1,16 @@
+# This project releated
+target/
+bin/
+
+# InjelliJ IDEA related
+.idea/
+*.iml
+
+# Eclipse releated
+.settings/
+.project
+.classpath
+
 *.class
 
 # Mobile Tools for Java (J2ME)
