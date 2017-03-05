@@ -14,17 +14,11 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <tomcat.version>8.5.11</tomcat.version>
-    <app.main.class>io.c6.example.App</app.main.class>
+    <app.main.class>io.c6.example.StartServer</app.main.class>
     <app.package.name>${project.artifactId}-${project.version}</app.package.name>
   </properties>
 
   <dependencies>
-
-    <!--<dependency>
-      <groupId>fish.payara.extras</groupId>
-      <artifactId>payara-micro</artifactId>
-      <version>4.1.153</version>
-    </dependency>-->
 
     <!--Embedded Tomcat jars-->
     <dependency>
@@ -40,8 +34,8 @@
 
     <!--Jersey Server-->
     <dependency>
-      <groupId>org.glassfish.jersey.core</groupId>
-      <artifactId>jersey-server</artifactId>
+      <groupId>org.glassfish.jersey.containers</groupId>
+      <artifactId>jersey-container-servlet</artifactId>
       <version>2.25.1</version>
     </dependency>
 
@@ -49,21 +43,23 @@
 
   <build>
 
-    <resources>
+    <!--<resources>
       <resource>
         <directory>src/main/resources</directory>
         <targetPath>META-INF/resources</targetPath>
       </resource>
-    </resources>
+    </resources>-->
 
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.4</version>
         <configuration>
           <descriptorRefs>
             <descriptorRef>jar-with-dependencies</descriptorRef>
           </descriptorRefs>
+          <appendAssemblyId>false</appendAssemblyId>
           <finalName>${app.package.name}</finalName>
           <archive>
             <manifest>
